@@ -62,7 +62,7 @@ h1 {
     background: #009688;
     background: #095e54;
     color: #fff;
-    padding: 20px;
+    padding: 20px 20px 30px;
         
     & h3 {
         margin: 0 0 10px;
@@ -87,6 +87,15 @@ h1 {
         }
 
     }
+    
+}
+
+a.close-chat {
+    position: absolute;
+    top: 5px;
+    right: 15px;
+    color: #fff;
+    font-size: 30px;
 }
 
 .whatsapp-chat-avatar {
@@ -116,59 +125,37 @@ h1 {
     }
 }
 
-
-textarea#chat-input {
-    border: none;
-    font-family: '-apple-system', 'BlinkMacSystemFont', 'Lato', 'Ubuntu','Helvetica', 'Arial', sans-serif;
-    background: #fff;
-    width: 100%;
-    height: 20px;
-    outline: none;
-    resize: none;
-    padding: 10px;
-    font-size: 14px;
-}
-
-a.send-message {
-    width: 30px;
-    font-weight: 700;
-    padding: 10px 10px 0;
-    background:#eee;
-    border-radius: 0 0 10px;
-
-    svg {
-        fill:#a6a6a6;
-        height: 24px;
-        width: 24px;
-    }
-}
-
-.first-msg {
-    background: transparent;
-    padding: 30px;
-    text-align: center;
-    & span {
-        background: #e2e2e2;
-        color: #333;
-        font-size: 14.2px;
-        line-height: 1.7;
-        border-radius: 10px;
-        padding: 15px 20px;
-        display: inline-block;
-    }
-}
-
-.start-chat .blanter-msg {
+.whatsapp-message-box {
     display: flex;
+
+    textarea {
+        border: none;
+        font-family: '-apple-system', 'BlinkMacSystemFont', 'Lato', 'Ubuntu','Helvetica', 'Arial', sans-serif;
+        background: #fff;
+        width: 100%;
+        height: 20px;
+        outline: none;
+        resize: none;
+        padding: 10px;
+        font-size: 14px;
+    }
+
+    a {
+        width: 30px;
+        font-weight: 700;
+        padding: 10px 10px 0;
+        background:#eee;
+        border-radius: 0 0 10px;
+
+        svg {
+            fill:#a6a6a6;
+            height: 24px;
+            width: 24px;
+        }
+    }
 }
 
-a.close-chat {
-    position: absolute;
-    top: 5px;
-    right: 15px;
-    color: #fff;
-    font-size: 30px;
-}
+
 
 @media screen and (max-width: 480px) {
     #whatsapp-chat {
@@ -262,7 +249,7 @@ a.close-chat {
 }
 
 
-.kAZgZq {
+.whatsapp-chat-message {
     padding: 7px 14px 6px;
     background-color: rgb(255, 255, 255);
     border-radius: 0px 8px 8px;
@@ -275,6 +262,7 @@ a.close-chat {
     margin-top: 4px;
     margin-left: -54px;
     max-width: calc(100% - 66px);
+    float: left;
     &::before {
         position: absolute;
         background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC");

@@ -9,32 +9,32 @@
           <p>
             <span class="whatsapp-chat-name">{{ getName }}</span>
             <br>
-            <small>{{ description }}</small>
+            <small style="float: left;">{{ description }}</small>
           </p>
       </div>
-  
-      <div class='start-chat'>
-        <div pattern="https://elfsight.com/assets/chats/patterns/whatsapp.png" class="whatsapp-chat-body">
-          <div class="whatsapp-chat-bubble">
-            <div style="opacity: 0;" class="whatsapp-chat-message-loader">
-              <div style="position: relative;display: flex;">
-                <div class="ixsrax"></div>
-                <div class="dRvxoz"></div>
-                <div class="kXBtNt"></div>
-              </div>
-            </div>
-            <div style="opacity: 1;" class="kAZgZq">
-              <div class="bMIBDo">{{ getName }}</div>
-              <div class="iSpIQi" v-html="welcomeMessage"></div>
-              <div class="cqCDVm">{{ getTime() }}</div>
+
+      <div class="whatsapp-chat-body" pattern="https://elfsight.com/assets/chats/patterns/whatsapp.png" >
+        <div class="whatsapp-chat-bubble">
+          <div style="opacity: 0;" class="whatsapp-chat-message-loader">
+            <div style="position: relative;display: flex;">
+              <div class="ixsrax"></div>
+              <div class="dRvxoz"></div>
+              <div class="kXBtNt"></div>
             </div>
           </div>
+          <div style="opacity: 1;" class="whatsapp-chat-message">
+            <div class="bMIBDo">{{ getName }}</div>
+            <div class="iSpIQi" v-html="welcomeMessage"></div>
+            <div class="cqCDVm">{{ getTime() }}</div>
+          </div>
         </div>
+      </div>
 
-        <div class='blanter-msg'>
-          <textarea id='chat-input' v-model="message" placeholder='Write a response' maxlength='120' row='1'></textarea>
-          <a class="send-message" @click="sendMessage"><svg viewBox="0 0 448 448"><path d="M.213 32L0 181.333 320 224 0 266.667.213 416 448 224z"/></svg></a>
-        </div>
+      <div class='whatsapp-message-box'>
+        <textarea v-model="message" placeholder='Write a response' maxlength='120' row='1'></textarea>
+        <a @click="sendMessage">
+          <svg viewBox="0 0 448 448"><path d="M.213 32L0 181.333 320 224 0 266.667.213 416 448 224z"/></svg>
+        </a>
       </div>
 
       <a class='close-chat' @click="toggleWidget">×</a>
