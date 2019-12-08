@@ -91,16 +91,14 @@ export default {
    },
 
    sendMessage() {
-      if ("" != this.message) {
-        var url = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-          ? "whatsapp://send"
-          : "https://web.whatsapp.com/send"
+      var url = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+        ? "https://wa.me/" + String(this.number).replace('+', '') + "?text=" + this.message
+        : "https://web.whatsapp.com/send?phone=" + this.number + "&text=" + this.message
 
-        window.open(url + "?phone=" + this.number + "&text=" + this.message, "_blank");
+      window.open(url, "_blank");
 
-        this.message = ''
-        this.open = false
-      }
+      this.message = ''
+      this.open = false
    }
   },
 }
