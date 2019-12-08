@@ -1,11 +1,12 @@
 body {
-font-family: --system-ui, "Lato", sans-serif;
-background: transparent;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'Lato', 'Ubuntu','Helvetica', 'Arial', 'sans-serif';
+    background: transparent;
 }
 
 a:link,
 a:visited {
     cursor: pointer;
+    pointer-events: all;
     color: #444;
     text-decoration: none;
     transition: all 0.4s ease-in-out;
@@ -33,12 +34,9 @@ h1 {
     right: 30px;
     overflow: hidden;
     z-index: 99;
-    animation-name: showchat;
-    animation-duration: 1s;
-    transform: scale(1);
 }
 
-a.blantershow-chat {
+.whatsapp-trigger-chat {
 /*   background: #009688; */
     background: #fff;
     color: #404040;
@@ -53,11 +51,11 @@ a.blantershow-chat {
     padding: 10px 20px;
     border-radius: 30px;
     box-shadow: 0 1px 15px rgba(32, 33, 36, 0.28);
-}
 
-a.blantershow-chat svg {
-    transform: scale(1.2);
-    margin: 0 10px 0 0;
+    & svg {
+        transform: scale(1.2);
+        margin: 0 10px 0 0;
+    }
 }
 
 .whatsapp-chat-header {
@@ -72,8 +70,8 @@ a.blantershow-chat svg {
 
     & p {
         font-size: 14px;
-        line-height: 1.7;
-        margin: -10px;
+        line-height: 1.3;
+        margin: 0 10px 10px;
     }
 
     .whatsapp-chat-name {
@@ -82,6 +80,12 @@ a.blantershow-chat svg {
         padding-bottom: 0;
         margin-bottom: 0;
         line-height: 0.5;
+        float: left;
+
+        span {
+            float: left;
+        }
+
     }
 }
 
@@ -109,14 +113,14 @@ a.blantershow-chat svg {
         width: 50px;
         float: left;
         margin: 0 10px 0 0;
-        
     }
 }
 
 
 textarea#chat-input {
     border: none;
-    font-family: "Arial", sans-serif;
+    font-family: '-apple-system', 'BlinkMacSystemFont', 'Lato', 'Ubuntu','Helvetica', 'Arial', sans-serif;
+    background: #fff;
     width: 100%;
     height: 20px;
     outline: none;
@@ -130,7 +134,7 @@ a.send-message {
     font-weight: 700;
     padding: 10px 10px 0;
     background:#eee;
-    border-radius: 10px;
+    border-radius: 0 0 10px;
 
     svg {
         fill:#a6a6a6;
@@ -166,55 +170,6 @@ a.close-chat {
     font-size: 30px;
 }
 
-@keyframes ZpjSY{
-    0% {
-        background-color: rgb(182, 181, 186);
-    }
-    15% {
-        background-color: rgb(17, 17, 17);
-    }
-    25% {
-        background-color: rgb(182, 181, 186);
-    }
-}
-
-@keyframes hPhMsj {
-    15% {
-        background-color: rgb(182, 181, 186);
-    }
-    25% {
-        background-color: rgb(17, 17, 17);
-    }
-    35% {
-        background-color: rgb(182, 181, 186);
-    }
-}
-
-@keyframes iUMejp {
-    25% {
-        background-color: rgb(182, 181, 186);
-    }
-    35% {
-        background-color: rgb(17, 17, 17);
-    }
-    45% {
-        background-color: rgb(182, 181, 186);
-    }
-}
-
-
-@keyframes showhide {
-    from {
-        transform: scale(0.5);
-        opacity: 0;
-    }
-}
-@keyframes showchat {
-    from {
-        transform: scale(0);
-        opacity: 0;
-    }
-}
 @media screen and (max-width: 480px) {
     #whatsapp-chat {
         width: auto;
@@ -222,22 +177,6 @@ a.close-chat {
         right: 5%;
         font-size: 80%;
     }
-}
-
-.hide {
-    display: none;
-    animation-name: showhide;
-    animation-duration: 0.5s;
-    transform: scale(1);
-    opacity: 1;
-}
-
-.show {
-    display: block;
-    animation-name: showhide;
-    animation-duration: 0.5s;
-    transform: scale(1);
-    opacity: 1;
 }
 
 .whatsapp-message-container {
@@ -278,62 +217,50 @@ a.close-chat {
     }
 }
 
-.dAbFpq {
-display: flex;
-z-index: 1;
-}
-
-.eJJEeC {
-background-color: rgb(255, 255, 255);
-width: 52.5px;
-height: 32px;
-border-radius: 16px;
-display: flex;
--moz-box-pack: center;
-justify-content: center;
--moz-box-align: center;
-align-items: center;
-margin-left: 10px;
-opacity: 0;
-transition: all 0.1s ease 0s;
-z-index: 1;
-box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
-}
-
-.hFENyl {
-    position: relative;
+.whatsapp-chat-bubble {
     display: flex;
+    z-index: 1;
 }
 
-.ixsrax {
-    height: 5px;
-    width: 5px;
-    margin: 0px 2px;
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    top: 0px;
-    background-color: rgb(158, 157, 162);
-    animation-name: ZpjSY;
+.whatsapp-chat-message-loader {
+    background-color: rgb(255, 255, 255);
+    width: 52.5px;
+    height: 32px;
+    border-radius: 16px;
+    display: flex;
+    -moz-box-pack: center;
+    justify-content: center;
+    -moz-box-align: center;
+    align-items: center;
+    margin-left: 10px;
+    opacity: 0;
+    transition: all 0.1s ease 0s;
+    z-index: 1;
+    box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
+
+    .ixsrax, .dRvxoz {
+        height: 5px;
+        width: 5px;
+        margin: 0px 2px;
+        border-radius: 50%;
+        display: inline-block;
+        position: relative;
+        animation-duration: 1.2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+        top: 0px;
+
+    }
+    .ixsrax{
+        background-color: rgb(158, 157, 162);
+        animation-name: ZpjSY;
+    }
+    
+    .dRvxoz {
+        animation-name: hPhMsj;
+    }
 }
 
-.dRvxoz {
-    height: 5px;
-    width: 5px;
-    margin: 0px 2px;
-    background-color: rgb(182, 181, 186);
-    border-radius: 50%;
-    display: inline-block;
-    position: relative;
-    animation-duration: 1.2s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    top: 0px;
-    animation-name: hPhMsj;
-}
 
 .kAZgZq {
     padding: 7px 14px 6px;
@@ -349,17 +276,17 @@ box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
     margin-left: -54px;
     max-width: calc(100% - 66px);
     &::before {
-    position: absolute;
-    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC");
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: contain;
-    content: "";
-    top: 0px;
-    left: -12px;
-    width: 12px;
-    height: 19px;
-}
+        position: absolute;
+        background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAmCAMAAADp2asXAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAACQUExURUxpccPDw9ra2m9vbwAAAAAAADExMf///wAAABoaGk9PT7q6uqurqwsLCycnJz4+PtDQ0JycnIyMjPf3915eXvz8/E9PT/39/RMTE4CAgAAAAJqamv////////r6+u/v7yUlJeXl5f///5ycnOXl5XNzc/Hx8f///xUVFf///+zs7P///+bm5gAAAM7Ozv///2fVensAAAAvdFJOUwCow1cBCCnqAhNAnY0WIDW2f2/hSeo99g1lBYT87vDXG8/6d8oL4sgM5szrkgl660OiZwAAAHRJREFUKM/ty7cSggAABNFVUQFzwizmjPz/39k4YuFWtm55bw7eHR6ny63+alnswT3/rIDzUSC7CrAziPYCJCsB+gbVkgDtVIDh+DsE9OTBpCtAbSBAZSEQNgWIygJ0RgJMDWYNAdYbAeKtAHODlkHIv997AkLqIVOXVU84AAAAAElFTkSuQmCC");
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        background-size: contain;
+        content: "";
+        top: 0px;
+        left: -12px;
+        width: 12px;
+        height: 19px;
+    }
 }
 
 .bMIBDo {
@@ -367,13 +294,6 @@ box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
     font-weight: 700;
     line-height: 18px;
     color: rgba(0, 0, 0, 0.4);
-}
-
-.iSpIQi {
-    font-size: 14px;
-    line-height: 19px;
-    margin-top: 4px;
-    color: rgb(17, 17, 17);
 }
 
 .iSpIQi {
@@ -394,3 +314,82 @@ box-shadow: rgba(0, 0, 0, 0.13) 0px 1px 0.5px;
     margin-bottom: -4px;
 }
 
+.show {
+    display: block;
+	animation: swing-in-bottom-bck 0.6s cubic-bezier(0.175, 0.885, 0.320, 1.275) both;
+}
+
+.hide {
+    display: none;
+	/* animation: swing-out-bottom-fwd 0.55s cubic-bezier(0.600, -0.280, 0.735, 0.045) both; */
+}
+
+
+
+/* Animation */
+
+@keyframes ZpjSY{
+    0% {
+        background-color: rgb(182, 181, 186);
+    }
+    15% {
+        background-color: rgb(17, 17, 17);
+    }
+    25% {
+        background-color: rgb(182, 181, 186);
+    }
+}
+
+@keyframes hPhMsj {
+    15% {
+        background-color: rgb(182, 181, 186);
+    }
+    25% {
+        background-color: rgb(17, 17, 17);
+    }
+    35% {
+        background-color: rgb(182, 181, 186);
+    }
+}
+
+@keyframes iUMejp {
+    25% {
+        background-color: rgb(182, 181, 186);
+    }
+    35% {
+        background-color: rgb(17, 17, 17);
+    }
+    45% {
+        background-color: rgb(182, 181, 186);
+    }
+}
+
+
+
+ @keyframes swing-out-bottom-fwd {
+    0% {
+      transform: rotateX(0);
+      transform-origin: bottom;
+      opacity: 1;
+    }
+    100% {
+      transform: rotateX(-70deg);
+      transform-origin: bottom;
+      opacity: 0;
+      display: none;
+    }
+  }
+  
+ @keyframes swing-in-bottom-bck {
+    0% {
+      transform: rotateX(-70deg);
+      transform-origin: bottom;
+      opacity: 0;
+    }
+    100% {
+      transform: rotateX(0);
+      transform-origin: bottom;
+      opacity: 1;
+    }
+  }
+  
