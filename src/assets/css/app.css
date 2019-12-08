@@ -133,15 +133,15 @@ a.close-chat {
         font-family: '-apple-system', 'BlinkMacSystemFont', 'Lato', 'Ubuntu','Helvetica', 'Arial', sans-serif;
         background: #fff;
         width: 100%;
-        height: 20px;
+        height: auto;
         outline: none;
         resize: none;
         padding: 10px;
         font-size: 14px;
+        max-height: 42px;
     }
 
     a {
-        width: 30px;
         font-weight: 700;
         padding: 10px 10px 0;
         background:#eee;
