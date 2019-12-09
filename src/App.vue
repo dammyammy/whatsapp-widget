@@ -13,7 +13,7 @@
           </p>
       </div>
 
-      <div class="whatsapp-chat-body" pattern="https://elfsight.com/assets/chats/patterns/whatsapp.png" >
+      <div class="whatsapp-chat-body" :pattern="pattern" >
         <div class="whatsapp-chat-bubble">
           <div style="opacity: 0;" class="whatsapp-chat-message-loader">
             <div style="position: relative;display: flex;">
@@ -59,6 +59,9 @@ export default {
     number: { required: true },
     avatar: {},
     name: {},
+    pattern: {
+      default: "https://res.cloudinary.com/eventbree/image/upload/v1575854793/Widgets/whatsapp-bg.png"
+    },
     description: {
       default: "Typically replies within an hour"
     },
@@ -91,9 +94,9 @@ export default {
    },
 
    sendMessage() {
-      var url = (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
-        ? "https://wa.me/" + String(this.number).replace('+', '') + "?text=" + this.message
-        : "https://web.whatsapp.com/send?phone=" + this.number + "&text=" + this.message
+      var url = !(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) 
+        ? "https://web.whatsapp.com/send?phone=" + this.number + "&text=" + encodeURIComponent(this.message)
+        : "https://wa.me/" + String(this.number).replace('+', '') + "?text=" + encodeURIComponent(this.message)
 
       window.open(url, "_blank");
 
